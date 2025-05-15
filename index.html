@@ -9,7 +9,7 @@
 
   <!-- TODO: -->
   <meta name="author" content="Under Review">
-  <title>Learning-Based Safe Trajectory Planning with Velocity Prediction for Aggressive Autonomous Racing</title>
+  <title>Rapid and Safe Trajectory Planning for Varying Scenes Realized by Controllable Diffusion Policy Composition</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -33,9 +33,7 @@
   <link rel="icon" type="image/x-icon" href="./materials/favicon.ico" />
 
 </head>
-
 <body>
-
 
 <section class="hero" style="background-color: #ebf0f1;">
   <div class="hero-body hero-body-dec19" >
@@ -47,15 +45,110 @@
             Rapid and Safe Trajectory Planning for Varying Scenes Realized by  Controllable Diffusion Policy Composition
           </h1>
 
-
-          
         </div>
       </div>
     </div>
   </div>
 </section>
-
 <hr>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-4">Controllable Diffusion Policy Composition</h2>
+
+          <div class="cpdfu_base_row">
+            <div class="multi_hor_rm2d_item">
+              <!-- <p>
+                <div class="left-caption">
+                  Single-lap Racing Trajectories for Different Methods with Cartographer
+                </div>
+              </p> -->
+            
+              <img src="materials/teaser/vis_abstract.jpg" alt="" style="max-width: 800px">
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<hr>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-4">Real-World Validation of Composition for an UNSEEN Scene</h2>
+
+        <div class="container bg-3">
+          <div class="centered-caption" style="justify-content: center;">
+            <div class="video-container" style="gap: 0px" >
+                <div class="continuous_racing_item" id="Static_id">
+                  <p class="splide_lb_suc_vs_rollout_repl cal_our_qual_caption">
+                    Static  Diffusion Policy
+                    <span class="splide_kuka_prob_id_repl">
+                      <!-- replay together -->
+                      <span class="replay_lb_suc" video_section="Static_id">
+                        <img src="static/replay.png" />
+                        <span>replay</span>
+                      </span>
+                    </span>
+                  </p>
+                  <video id="antmaze_exp_qual_list_dset" muted autoplay="" preload="metadata" style="max-width: 280px">
+                    <source src="materials/compose/static_collision.mp4"  type="video/mp4">
+                  </video>
+                </div>
+
+                <div class="continuous_racing_item" id="Dynamic_id">
+                  <div class="multi_hor_rm2d_caption cal_our_qual_caption" > 
+                    Dynamic Diffusion Policy 
+                    <span class="splide_kuka_prob_id_repl">
+                      <span class="replay_lb_suc" video_section="Dynamic_id">
+                        <img src="static/replay.png" />
+                        <span>replay</span>
+                      </span>
+                    </span>
+                  </div>
+
+                  <video id="antmaze_exp_qual_list_rollout" muted autoplay="" preload="metadata" style="max-width: 280px">
+                    <source src="materials/compose/dynamic_collision.mp4" type="video/mp4">
+                  </video>
+
+                </div>
+
+                <div class="continuous_racing_item" id="Composed_id">
+                  <div class="multi_hor_rm2d_caption cal_our_qual_caption" > 
+                    Composed Policy
+                    <span class="splide_kuka_prob_id_repl">
+                      <span class="replay_lb_suc" video_section="Composed_id">
+                        <img src="static/replay.png" />
+                        <span>replay</span>
+                      </span>
+                    </span>
+                  </div>
+
+                  <video id="antmaze_exp_qual_list_rollout" muted autoplay="" preload="metadata" style="max-width: 280px">
+                    <source src="materials/compose/compose.mp4" type="video/mp4">
+                  </video>
+
+                </div>
+            </div>
+
+            <div class="left-caption" style="margin-top: 10px;">
+              <b>This policy composition approach ensures collision-free trajectory planning for safety, while maintaining high computational efficiency benifiting from rapid  inference. The proposed method can make optimal test-time decisions to generate safe behaviors, such as accelerating to bypass or decelerating to avoid obstacles , thus allowing trajecoty planning for varing scenes without retraining.</b> 
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<hr>
+
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content column is-full-width ">
