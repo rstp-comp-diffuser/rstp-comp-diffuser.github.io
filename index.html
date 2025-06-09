@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Project Page for Rapid and Safe Trajectory Planning for Varying Scenes Realized by Controllable Diffusion Policy Composition.">
+        content="Rapid and Safe Trajectory Planning over Diverse Scenes through Diffusion Composition.">
   <meta name="keywords" content="XX">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- TODO: -->
   <meta name="author" content="Under Review">
-  <title>Rapid and Safe Trajectory Planning for Varying Scenes Realized by Controllable Diffusion Policy Composition</title>
+  <title>Rapid and Safe Trajectory Planning over Diverse Scenes through Diffusion Composition</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -42,8 +42,45 @@
         <div class="column has-text-centered">
           <!-- is-1 or is-2 -->
           <h1 class="title publication-title" style="font-size: 48px;">
-            Rapid and Safe Trajectory Planning for Varying Scenes Realized by  Controllable Diffusion Policy Composition
+            Rapid and Safe Trajectory Planning over Diverse Scenes through Diffusion Composition
           </h1>
+
+          <span class="author-block">
+            Anonymous Authors<sup>1</sup>
+          </span>
+
+          
+          <div class="column has-text-centered">
+            <div class="publication-links">
+
+              <!-- Arxiv -->
+              <span class="link-block">
+                <a href="TBA"
+                  class="external-link button is-normal is-rounded is-dark"
+                  target="_blank">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/zhouhengli/ritp"
+                  class="external-link button is-normal is-rounded is-dark"
+                  target="_blank">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span >Dataset</span>
+                </a>
+              </span>
+
+
+            </div>
+          </div>
 
         </div>
       </div>
@@ -52,12 +89,11 @@
 </section>
 <hr>
 
-
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-4">Controllable Diffusion Policy Composition</h2>
+        <h2 class="title is-4">Teaser</h2>
 
           <div class="cpdfu_base_row">
             <div class="multi_hor_rm2d_item">
@@ -67,8 +103,240 @@
                 </div>
               </p> -->
             
-              <img src="materials/teaser/vis_abstract.jpg" alt="" style="max-width: 800px">
+              <img src="materials/teaser/vis_abstract.jpg" alt="" style="max-width: 950px">
             </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<hr>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-full-width"> -->
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified div_abs_text">
+          <p>
+
+            Safe trajectory planning remains a significant challenge in complex, heterogeneous environments. Traditional approaches typically face a trade-off between computational efficiency and safety: comprehensive obstacle modeling enhances safety but involves high computational overhead, whereas approximate approaches improve computational efficiency at the expense of potentially reduced safety. To address this issue, this paper introduces a <b class="cpdfu_gradient_text">rapid and safe trajectory planning</b> framework based on the  state-based diffusion model. Leveraging only low-dimensional vehicle states, the diffusion approach achieves notable inference efficiency. Additionally, by composing diffusion models, the proposed framework can generalize safely across various scenarios, effectively navigating scenes not encountered during training. To further guarantee the safety of the generated trajectories, an efficient, rule-based safety filter is proposed, selecting optimal trajectories that fulfill stringent safety and consistency criteria from a batch of candidate trajectories. In a single scenario, the proposed method achieves a mean inference time of only 0.21 seconds while maintaining high stability and safety standards. Evaluations on the F1TENTH real-world platform demonstrate that the <b class="cpdfu_gradient_text">composed model </b> successfully generalizes to previously unseen scenarios, and the resulting trajectories can be reliably followed by straightforward controllers to accomplish navigation tasks.
+
+            <!-- Effective trajectory stitching for long-horizon planning is a significant challenge in robotic decision-making. While diffusion models have shown promise in planning, they are limited to solving tasks similar to those seen in their training data. We propose <b class="cpdfu_gradient_text">CompDiffuser</b>, a novel generative approach that can solve new tasks by learning to compositionally stitch together shorter trajectory chunks from previously seen tasks. Our key insight is modeling the trajectory distribution by subdividing it into overlapping chunks and learning their conditional relationships through a single bidirectional diffusion model. This allows information to propagate between segments during generation, ensuring physically consistent connections. 
+            We conduct experiments on benchmark tasks of various difficulties, covering different environment sizes, agent state dimension, training data quality, and show that <b class="cpdfu_gradient_text">CompDiffuser</b> significantly outperforming existing methods. -->
+
+            
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<hr>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+
+        <h2 class="title is-4">The Performance of Model Composition in Simulation</h2>
+
+
+        <div class="container bg-3">
+          <div class="row centered-caption" style="justify-content: center;">
+
+            <span class="splide_kuka_prob_id_repl">
+              Weights of composition - [Dynamic Model, Static Model]: &nbsp;
+              <!-- </p> -->
+              <div class="select is-small">     
+                <!-- <select id="cal-our-qual-list" onchange="update_cal_our_qual_list()"> -->
+                <select id="comp_dim_list" onchange="update_antmaze_high_dim_agv_qual_list()">
+                  <option value="rstp_5_uncond_08" selected="selected">[5.0(uncond) 0.8] </option>
+                  <option value="rstp_5_uncond_25">[5.0(uncond) 2.5]</option>
+                  <option value="rstp_02_5_uncond">[0.2 5.0(uncond)]</option>
+                  <option value="rstp_25_5_uncond">[2.5 5.0(uncond)]</option>
+                </select>
+              </div>
+              <!-- sequential reply -->
+              <!-- <span class="replay_lb_suc" id="btn_cal_replay" video_section="res">
+                <img src="static/replay.png" />
+                <span>replay</span>
+              </span> -->
+            </span>
+            
+
+            <div class="video-container" style="gap: 10px" >
+
+                <div class="antmaze_high_dim_item">
+                  <p class="splide_lb_suc_vs_rollout_repl cal_our_qual_caption">
+                    Dynamic Model
+                  </p>
+                  
+                  <img id="rstp_static" src="materials/sim_compose/static.jpg" alt="">
+
+                </div>
+
+                <div class="antmaze_high_dim_item">
+                  <div class="multi_hor_rm2d_caption cal_our_qual_caption"> 
+                    Static Model
+                  </div>
+
+                  <img id="rstp_dynamic" src="materials/sim_compose/dynamic.jpg" alt="">
+
+                </div>
+
+                <div class="antmaze_high_dim_item">
+                  <div class="multi_hor_rm2d_caption cal_our_qual_caption"> 
+                    Composed Result
+                  </div>
+
+                  <img id="rstp_compose" src="materials/sim_compose/5.0_0.8_dynamic_ucond.jpg" alt="">
+
+                </div>
+
+              
+
+            <div class="left-caption" style="margin-top: 10px;">
+              <b>Effectiveness of Models Composition and Sensitivity of Compositional Weights.</b>
+              The composed model can safely generalize to unseen scenes when appropriate compositional weights are selected, achieving a collision-free trajectory. However, increasing the weight assigned to conditional models results in a rise in failure rate across both test scenes. These results demonstrate that the generalization capability is sensitive to compositional weights, and maintaining appropriate weights is critical for minimizing failures.
+            </div>
+          </div>
+          
+          
+        </div>
+       
+
+        
+
+        
+      </div>
+    </div>
+  </div>
+</section>
+<hr>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-4">Real-World Validation of Individual Static Model</h2>
+          <div class="container bg-3">
+            <div class="centered-caption" style="justify-content: center;">
+
+              <div class="video-container" style="gap: 5px" >
+                  <div class="continuous_racing_item" id="static_scene_p1">
+                    <p class="splide_lb_suc_vs_rollout_repl cal_our_qual_caption">
+                      <!-- Initial Pose: [0.86, 0.03] -->
+                      <span class="splide_kuka_prob_id_repl">
+                        <!-- replay together -->
+                        <span class="replay_lb_suc" video_section="static_scene_p1">
+                          <img src="static/replay.png" style="width: 10px; height: auto;"  />
+                          <span style="font-size: 15px;">replay</span>
+                        </span>
+                      </span>
+                    </p>
+                    <video id="antmaze_exp_qual_list_dset" muted autoplay="" preload="metadata" style="max-width: 340px">
+                      <source src="materials/static/1.mp4"  type="video/mp4">
+                    </video>
+                  </div>
+
+                  <div class="continuous_racing_item" id="static_scene_p2">
+                    <div class="multi_hor_rm2d_caption cal_our_qual_caption" > 
+                      <!-- Initial Pose: [2.73, 0.32] -->
+                      <span class="splide_kuka_prob_id_repl">
+                        <span class="replay_lb_suc" video_section="static_scene_p2">
+                          <img src="static/replay.png" style="width: 10px; height: auto;"  />
+                          <span style="font-size: 15px;">replay</span>
+                        </span>
+                      </span>
+                    </div>
+
+                    <video id="antmaze_exp_qual_list_rollout" muted autoplay="" preload="metadata" style="max-width: 340px">
+                      <source src="materials/static/2.mp4" type="video/mp4">
+                    </video>
+
+                  </div>
+
+                  <div class="continuous_racing_item" id="static_scene_p3">
+                    <div class="multi_hor_rm2d_caption cal_our_qual_caption" > 
+                      <!-- Initial Pose: [3.03, -0.07] -->
+                      <span class="splide_kuka_prob_id_repl">
+                        <span class="replay_lb_suc" video_section="static_scene_p3">
+                          <img src="static/replay.png" style="width: 10px; height: auto;"  />
+                          <span style="font-size: 15px;">replay</span>
+                        </span>
+                      </span>
+                    </div>
+
+                    <video id="antmaze_exp_qual_list_rollout" muted autoplay="" preload="metadata" style="max-width: 340px">
+                      <source src="materials/static/3.mp4" type="video/mp4">
+                    </video>
+
+                  </div>
+              </div>
+
+              <div class="video-container" style="gap: 5px" >
+                  <div class="continuous_racing_item" id="static_scene_p4">
+                    <p class="splide_lb_suc_vs_rollout_repl cal_our_qual_caption">
+                      <!-- Initial Pose: [0.86, 0.03] -->
+                      <span class="splide_kuka_prob_id_repl">
+                        <!-- replay together -->
+                        <span class="replay_lb_suc" video_section="static_scene_p4">
+                          <img src="static/replay.png" style="width: 10px; height: auto;"  />
+                          <span style="font-size: 15px;">replay</span>
+                        </span>
+                      </span>
+                    </p>
+                    <video id="antmaze_exp_qual_list_dset" muted autoplay="" preload="metadata" style="max-width: 340px">
+                      <source src="materials/static/4.mp4"  type="video/mp4">
+                    </video>
+                  </div>
+
+                  <div class="continuous_racing_item" id="static_scene_p5">
+                    <div class="multi_hor_rm2d_caption cal_our_qual_caption" > 
+                      <!-- Initial Pose: [2.73, 0.32] -->
+                      <span class="splide_kuka_prob_id_repl">
+                        <span class="replay_lb_suc" video_section="static_scene_p5">
+                          <img src="static/replay.png" style="width: 10px; height: auto;"  />
+                          <span style="font-size: 15px;">replay</span>
+                        </span>
+                      </span>
+                    </div>
+
+                    <video id="antmaze_exp_qual_list_rollout" muted autoplay="" preload="metadata" style="max-width: 340px">
+                      <source src="materials/static/5.mp4" type="video/mp4">
+                    </video>
+
+                  </div>
+
+                  <div class="continuous_racing_item" id="static_scene_p6">
+                    <div class="multi_hor_rm2d_caption cal_our_qual_caption" > 
+                      <!-- Initial Pose: [3.03, -0.07] -->
+                      <span class="splide_kuka_prob_id_repl">
+                        <span class="replay_lb_suc" video_section="static_scene_p6">
+                          <img src="static/replay.png" style="width: 10px; height: auto;"  />
+                          <span style="font-size: 15px;">replay</span>
+                        </span>
+                      </span>
+                    </div>
+
+                    <video id="antmaze_exp_qual_list_rollout" muted autoplay="" preload="metadata" style="max-width: 340px">
+                      <source src="materials/static/6.mp4" type="video/mp4">
+                    </video>
+
+                  </div>
+
+              </div>
+
+            </div>
+              <div class="left-caption" style="margin-top: 10px;">
+                <b>This paper proposes a rapid trajectory generation approach that integrates SLAM-based perception with a diffusion model.</b> 
+                Unlike end-to-end methods, it uses perception modules to extract low-dimensional vehicle states, reducing the computational cost of iterative denoising while retaining the diffusion model's generative power to ensure trajectory feasibility and safety.
+              </div>
           </div>
 
       </div>
@@ -81,68 +349,285 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-4">Real-World Validation of Composition for an UNSEEN Scene</h2>
-
-        <div class="container bg-3">
-          <div class="centered-caption" style="justify-content: center;">
-            <div class="video-container" style="gap: 0px" >
-                <div class="continuous_racing_item" id="Static_id">
-                  <p class="splide_lb_suc_vs_rollout_repl cal_our_qual_caption">
-                    Static  Diffusion Policy
-                    <span class="splide_kuka_prob_id_repl">
-                      <!-- replay together -->
-                      <span class="replay_lb_suc" video_section="Static_id">
-                        <img src="static/replay.png" />
-                        <span>replay</span>
+        <h2 class="title is-4">Real-World Validation of Composition for UNSEEN Scenes</h2>
+          <div class="container bg-3">
+            <div class="centered-caption" style="justify-content: center;">
+              <div class="video-container" style="gap: 5px" >
+                  <div class="continuous_racing_item" id="Static_id">
+                    <p class="splide_lb_suc_vs_rollout_repl cal_our_qual_caption">
+                      Static Diffusion Model
+                      <span class="splide_kuka_prob_id_repl">
+                        <!-- replay together -->
+                        <span class="replay_lb_suc" video_section="Static_id">
+                          <img src="static/replay.png" />
+                          <span>replay</span>
+                        </span>
                       </span>
-                    </span>
-                  </p>
-                  <video id="antmaze_exp_qual_list_dset" muted autoplay="" preload="metadata" style="max-width: 280px">
-                    <source src="materials/compose/static_collision.mp4"  type="video/mp4">
-                  </video>
-                </div>
-
-                <div class="continuous_racing_item" id="Dynamic_id">
-                  <div class="multi_hor_rm2d_caption cal_our_qual_caption" > 
-                    Dynamic Diffusion Policy 
-                    <span class="splide_kuka_prob_id_repl">
-                      <span class="replay_lb_suc" video_section="Dynamic_id">
-                        <img src="static/replay.png" />
-                        <span>replay</span>
-                      </span>
-                    </span>
+                    </p>
+                    <video id="antmaze_exp_qual_list_dset" muted autoplay="" preload="metadata" style="max-width: 340px">
+                      <source src="materials/compose/static_collision.mp4"  type="video/mp4">
+                    </video>
                   </div>
 
-                  <video id="antmaze_exp_qual_list_rollout" muted autoplay="" preload="metadata" style="max-width: 280px">
-                    <source src="materials/compose/dynamic_collision.mp4" type="video/mp4">
-                  </video>
-
-                </div>
-
-                <div class="continuous_racing_item" id="Composed_id">
-                  <div class="multi_hor_rm2d_caption cal_our_qual_caption" > 
-                    Composed Policy
-                    <span class="splide_kuka_prob_id_repl">
-                      <span class="replay_lb_suc" video_section="Composed_id">
-                        <img src="static/replay.png" />
-                        <span>replay</span>
+                  <div class="continuous_racing_item" id="Dynamic_id">
+                    <div class="multi_hor_rm2d_caption cal_our_qual_caption" > 
+                      Dynamic Diffusion Model 
+                      <span class="splide_kuka_prob_id_repl">
+                        <span class="replay_lb_suc" video_section="Dynamic_id">
+                          <img src="static/replay.png" />
+                          <span>replay</span>
+                        </span>
                       </span>
-                    </span>
+                    </div>
+
+                    <video id="antmaze_exp_qual_list_rollout" muted autoplay="" preload="metadata" style="max-width: 340px">
+                      <source src="materials/compose/dynamic_collision.mp4" type="video/mp4">
+                    </video>
+
                   </div>
 
-                  <video id="antmaze_exp_qual_list_rollout" muted autoplay="" preload="metadata" style="max-width: 280px">
-                    <source src="materials/compose/compose.mp4" type="video/mp4">
-                  </video>
+                  <div class="continuous_racing_item" id="Composed_id">
+                    <div class="multi_hor_rm2d_caption cal_our_qual_caption" > 
+                      Composed Result
+                      <span class="splide_kuka_prob_id_repl">
+                        <span class="replay_lb_suc" video_section="Composed_id">
+                          <img src="static/replay.png" />
+                          <span>replay</span>
+                        </span>
+                      </span>
+                    </div>
 
-                </div>
-            </div>
+                    <video id="antmaze_exp_qual_list_rollout" muted autoplay="" preload="metadata" style="max-width: 340px">
+                      <source src="materials/compose/compose.mp4" type="video/mp4">
+                    </video>
 
-            <div class="left-caption" style="margin-top: 10px;">
-              <b>This policy composition approach ensures collision-free trajectory planning for safety, while maintaining high computational efficiency benifiting from rapid  inference. The proposed method can make optimal test-time decisions to generate safe behaviors, such as accelerating to bypass or decelerating to avoid obstacles , thus allowing trajecoty planning for varing scenes without retraining.</b> 
+                  </div>
+              </div>
+
+              <div class="left-caption" style="margin-top: 10px;">
+                <b>This model composition approach ensures collision-free trajectory planning in <b class="cpdfu_gradient_text">unseen scenes</b> for safety.</b>  The proposed method can make optimal test-time decisions to generate safe behaviors, such as accelerating to bypass or decelerating to avoid obstacles , thus allowing trajecoty planning for diverse scenes without retraining.
+              </div>
+
+              <br>
+              <h2 class="title is-5">Scene 1 - view 1:</h>
+              <div class="video-container" style="gap: 5px" >
+                  <div class="continuous_racing_item" id="scene_p1">
+                    <p class="splide_lb_suc_vs_rollout_repl cal_our_qual_caption">
+                      Initial Pose: [0.86, 0.03]
+                      <span class="splide_kuka_prob_id_repl">
+                        <!-- replay together -->
+                        <span class="replay_lb_suc" video_section="scene_p1">
+                          <img src="static/replay.png" style="width: 10px; height: auto;"  />
+                          <span style="font-size: 15px;">replay</span>
+                        </span>
+                      </span>
+                    </p>
+                    <video id="antmaze_exp_qual_list_dset" muted autoplay="" preload="metadata" style="max-width: 330px">
+                      <source src="materials/compose/various_pose/scene1/0.86_0.03.mp4"  type="video/mp4">
+                    </video>
+                  </div>
+
+                  <div class="continuous_racing_item" id="scene_p2">
+                    <div class="multi_hor_rm2d_caption cal_our_qual_caption" > 
+                      Initial Pose: [2.73, 0.32]
+                      <span class="splide_kuka_prob_id_repl">
+                        <span class="replay_lb_suc" video_section="scene_p2">
+                          <img src="static/replay.png" style="width: 10px; height: auto;"  />
+                          <span style="font-size: 15px;">replay</span>
+                        </span>
+                      </span>
+                    </div>
+
+                    <video id="antmaze_exp_qual_list_rollout" muted autoplay="" preload="metadata" style="max-width: 330px">
+                      <source src="materials/compose/various_pose/scene1/2.73-0.32.mp4" type="video/mp4">
+                    </video>
+
+                  </div>
+
+                  <div class="continuous_racing_item" id="scene_p3">
+                    <div class="multi_hor_rm2d_caption cal_our_qual_caption" > 
+                      Initial Pose: [3.03, -0.07]
+                      <span class="splide_kuka_prob_id_repl">
+                        <span class="replay_lb_suc" video_section="scene_p3">
+                          <img src="static/replay.png" style="width: 10px; height: auto;"  />
+                          <span style="font-size: 15px;">replay</span>
+                        </span>
+                      </span>
+                    </div>
+
+                    <video id="antmaze_exp_qual_list_rollout" muted autoplay="" preload="metadata" style="max-width: 330px">
+                      <source src="materials/compose/various_pose/scene1/3.03_-0.07.mp4" type="video/mp4">
+                    </video>
+
+                  </div>
+              </div>
+
+              <br>
+              <h2 class="title is-5">Scene 1 - view 2:</h>
+              <div class="video-container" style="gap: 5px" >
+                  <div class="continuous_racing_item" id="scene_p1_v2">
+                    <p class="splide_lb_suc_vs_rollout_repl cal_our_qual_caption">
+                      Initial Pose: [0.86, 0.03]
+                      <span class="splide_kuka_prob_id_repl">
+                        <!-- replay together -->
+                        <span class="replay_lb_suc" video_section="scene_p1_v2">
+                          <img src="static/replay.png" style="width: 10px; height: auto;"  />
+                          <span style="font-size: 15px;">replay</span>
+                        </span>
+                      </span>
+                    </p>
+                    <video id="antmaze_exp_qual_list_dset" muted autoplay="" preload="metadata" style="max-width: 330px">
+                      <source src="materials/compose/various_pose/scene1/view2/0.86_0.03.mp4"  type="video/mp4">
+                    </video>
+                  </div>
+
+                  <div class="continuous_racing_item" id="scene_p2_v2">
+                    <div class="multi_hor_rm2d_caption cal_our_qual_caption" > 
+                      Initial Pose: [2.73, 0.32]
+                      <span class="splide_kuka_prob_id_repl">
+                        <span class="replay_lb_suc" video_section="scene_p2_v2">
+                          <img src="static/replay.png" style="width: 10px; height: auto;"  />
+                          <span style="font-size: 15px;">replay</span>
+                        </span>
+                      </span>
+                    </div>
+
+                    <video id="antmaze_exp_qual_list_rollout" muted autoplay="" preload="metadata" style="max-width: 330px">
+                      <source src="materials/compose/various_pose/scene1/view2/2.73-0.32.mp4" type="video/mp4">
+                    </video>
+
+                  </div>
+
+                  <div class="continuous_racing_item" id="scene_p3_v2">
+                    <div class="multi_hor_rm2d_caption cal_our_qual_caption" > 
+                      Initial Pose: [3.03, -0.07]
+                      <span class="splide_kuka_prob_id_repl">
+                        <span class="replay_lb_suc" video_section="scene_p3_v2">
+                          <img src="static/replay.png" style="width: 10px; height: auto;"  />
+                          <span style="font-size: 15px;">replay</span>
+                        </span>
+                      </span>
+                    </div>
+
+                    <video id="antmaze_exp_qual_list_rollout" muted autoplay="" preload="metadata" style="max-width: 330px">
+                      <source src="materials/compose/various_pose/scene1/view2/3.03_-0.07.mp4" type="video/mp4">
+                    </video>
+
+                  </div>
+                  
+              </div>
+              
+              <br>
+              <h2 class="title is-5">Scene 2 - view 1:</h>
+              <div class="video-container" style="gap: 5px" >
+                  <div class="continuous_racing_item" id="scene2_p1_v1">
+                    <p class="splide_lb_suc_vs_rollout_repl cal_our_qual_caption">
+                      Initial Pose: [0.82, 0.07]
+                      <span class="splide_kuka_prob_id_repl">
+                        <!-- replay together -->
+                        <span class="replay_lb_suc" video_section="scene2_p1_v1">
+                          <img src="static/replay.png" style="width: 10px; height: auto;"  />
+                          <span style="font-size: 15px;">replay</span>
+                        </span>
+                      </span>
+                    </p>
+                    <video id="antmaze_exp_qual_list_dset" muted autoplay="" preload="metadata" style="max-width: 330px">
+                      <source src="materials/compose/various_pose/scene2/0.82_0.07.mp4"  type="video/mp4">
+                    </video>
+                  </div>
+
+                  <div class="continuous_racing_item" id="scene2_p2_v1">
+                    <div class="multi_hor_rm2d_caption cal_our_qual_caption" > 
+                      Initial Pose: [2.76, 0.47]
+                      <span class="splide_kuka_prob_id_repl">
+                        <span class="replay_lb_suc" video_section="scene2_p2_v1">
+                          <img src="static/replay.png" style="width: 10px; height: auto;"  />
+                          <span style="font-size: 15px;">replay</span>
+                        </span>
+                      </span>
+                    </div>
+
+                    <video id="antmaze_exp_qual_list_rollout" muted autoplay="" preload="metadata" style="max-width: 330px">
+                      <source src="materials/compose/various_pose/scene2/2.76_0.47.mp4" type="video/mp4">
+                    </video>
+
+                  </div>
+
+                  <div class="continuous_racing_item" id="scene2_p3_v1">
+                    <div class="multi_hor_rm2d_caption cal_our_qual_caption" > 
+                      Initial Pose: [2.79, -0.11]
+                      <span class="splide_kuka_prob_id_repl">
+                        <span class="replay_lb_suc" video_section="scene2_p3_v1">
+                          <img src="static/replay.png" style="width: 10px; height: auto;"  />
+                          <span style="font-size: 15px;">replay</span>
+                        </span>
+                      </span>
+                    </div>
+
+                    <video id="antmaze_exp_qual_list_rollout" muted autoplay="" preload="metadata" style="max-width: 330px">
+                      <source src="materials/compose/various_pose/scene2/2.79_-0.11.mp4" type="video/mp4">
+                    </video>
+
+                  </div>
+              </div>
+
+              <br>
+              <h2 class="title is-5">Scene 2 - view 2:</h>
+              <div class="video-container" style="gap: 5px" >
+                  <div class="continuous_racing_item" id="scene2_p1_v2">
+                    <p class="splide_lb_suc_vs_rollout_repl cal_our_qual_caption">
+                      Initial Pose: [0.82, 0.07]
+                      <span class="splide_kuka_prob_id_repl">
+                        <!-- replay together -->
+                        <span class="replay_lb_suc" video_section="scene2_p1_v2">
+                          <img src="static/replay.png" style="width: 10px; height: auto;"  />
+                          <span style="font-size: 15px;">replay</span>
+                        </span>
+                      </span>
+                    </p>
+                    <video id="antmaze_exp_qual_list_dset" muted autoplay="" preload="metadata" style="max-width: 330px">
+                      <source src="materials/compose/various_pose/scene2/view2/0.82_0.07.mp4"  type="video/mp4">
+                    </video>
+                  </div>
+
+                  <div class="continuous_racing_item" id="scene2_p2_v2">
+                    <div class="multi_hor_rm2d_caption cal_our_qual_caption" > 
+                      Initial Pose: [2.76, 0.47]
+                      <span class="splide_kuka_prob_id_repl">
+                        <span class="replay_lb_suc" video_section="scene2_p2_v2">
+                          <img src="static/replay.png" style="width: 10px; height: auto;"  />
+                          <span style="font-size: 15px;">replay</span>
+                        </span>
+                      </span>
+                    </div>
+
+                    <video id="antmaze_exp_qual_list_rollout" muted autoplay="" preload="metadata" style="max-width: 330px">
+                      <source src="materials/compose/various_pose/scene2/view2/2.76_0.47.mp4" type="video/mp4">
+                    </video>
+
+                  </div>
+
+                  <div class="continuous_racing_item" id="scene2_p3_v2">
+                    <div class="multi_hor_rm2d_caption cal_our_qual_caption" > 
+                      Initial Pose: [2.79, -0.11]
+                      <span class="splide_kuka_prob_id_repl">
+                        <span class="replay_lb_suc" video_section="scene2_p3_v2">
+                          <img src="static/replay.png" style="width: 10px; height: auto;"  />
+                          <span style="font-size: 15px;">replay</span>
+                        </span>
+                      </span>
+                    </div>
+
+                    <video id="antmaze_exp_qual_list_rollout" muted autoplay="" preload="metadata" style="max-width: 330px">
+                      <source src="materials/compose/various_pose/scene2/view2/2.79_-0.11.mp4" type="video/mp4">
+                    </video>
+
+                  </div>
+              </div>
+
             </div>
-          
           </div>
-        </div>
+
       </div>
     </div>
   </div>
@@ -179,7 +664,7 @@
           <p>
             This website is forked from the
 						<a href="https://nerfies.github.io/">Nerfies</a> and
-						<a href="https://github.com/nerfies/nerfies.github.io">source code</a>
+						<a href="https://github.com/nerfies/nerfies.github.io">source code</a>. And template is borrowed from <a href="https://comp-diffuser.github.io/" target="_blank">here</a>.
           </p>
         </div>
       </div>

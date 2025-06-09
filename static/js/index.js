@@ -114,35 +114,24 @@ function update_cal_our_qual_list() {
 
 // Function for the Calvin qualitative dropdown list
 function update_antmaze_high_dim_agv_qual_list() {
-  var tk_name = document.getElementById("antmaze_high_dim_list").value;
+  var tk_name = document.getElementById("comp_dim_list").value;
 
   predv_path = ""
   r_path = ""
-  if (tk_name == 'antmaze_15d_large_tk1') {
-    img_path = "materials/vis_web_agv/antmaze-large-stitch-v0/ours_tk1_ncp5_sd85_back_luo_v3_250205-231630.png"
-    predv_path = "materials/vis_web_agv/antmaze-large-stitch-v0/ours_tk1_ncp5_sd85_back_luo_v3_250205-231630.mp4"
-  } else if (tk_name == 'antmaze_29d_large_tk1') {
-    img_path = "materials/vis_web_agv/antmaze-large-stitch-v0/ours_o29d_tk1_ncp5_sd73_back_luo_v3_250206-002406.png"
-    predv_path = "materials/vis_web_agv/antmaze-large-stitch-v0/ours_o29d_tk1_ncp5_sd73_back_luo_v3_250206-002406.mp4"
+  if (tk_name == 'rstp_5_uncond_08') {
+    img_path = "materials/sim_compose/5.0_0.8_dynamic_ucond.jpg"
+  } else if (tk_name == 'rstp_5_uncond_25') {
+    img_path = "materials/sim_compose/5.0_2.5_dynamic_ucond.jpg"
   }
-  else if (tk_name == 'antmaze_15d_medium_tk1') {
-    img_path = "materials/vis_web_agv/antmaze-medium-stitch-v0/ours_o15d_tk1_ncp3_sd41_back_luo_v3_250206-115850.png"
-    predv_path = "materials/vis_web_agv/antmaze-medium-stitch-v0/ours_o15d_tk1_ncp3_sd41_back_luo_v3_250206-115850.mp4"
+  else if (tk_name == 'rstp_02_5_uncond') {
+    img_path = "materials/sim_compose/5.0_0.2_static_ucond.jpg"
   }
-  else if (tk_name == 'antmaze_29d_medium_tk1') {
-    img_path = "materials/vis_web_agv/antmaze-medium-stitch-v0/ours_o29d_tk1_ncp3_sd25_back_luo_v3_250206-014340.png"
-    predv_path = "materials/vis_web_agv/antmaze-medium-stitch-v0/ours_o29d_tk1_ncp3_sd25_back_luo_v3_250206-014340.mp4"
+  else if (tk_name == 'rstp_25_5_uncond') {
+    img_path = "materials/sim_compose/5.0_2.5_static_ucond.jpg"
   }
 
-  img_td = document.getElementById("antmaze_high_dim_topdown");
+  img_td = document.getElementById("rstp_compose");
   img_td.src = img_path
-
-  predv_video = document.getElementById("antmaze_high_dim_agv_video");
-  predv_video.src = predv_path
-
-  predv_video.currentTime = 0;
-  predv_video.pause();
-  predv_video.play();
 
 }
 
