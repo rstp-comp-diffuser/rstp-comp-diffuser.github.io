@@ -120,7 +120,14 @@ function update_antmaze_high_dim_agv_qual_list() {
   r_path = ""
   if (tk_name == 'rstp_5_uncond_08') {
     img_path = "materials/sim_compose/5.0_0.8_dynamic_ucond.jpg"
-  } else if (tk_name == 'rstp_5_uncond_25') {
+  }
+  else if (tk_name == 'rstp_5_uncond_10') {
+    img_path = "materials/sim_compose/dyn_uncon_5.0_1.0.jpg"
+  }
+  else if (tk_name == 'rstp_5_uncond_12') {
+    img_path = "materials/sim_compose/dyn_uncon_5.0_1.2.jpg"
+  } 
+  else if (tk_name == 'rstp_5_uncond_25') {
     img_path = "materials/sim_compose/5.0_2.5_dynamic_ucond.jpg"
   }
   else if (tk_name == 'rstp_02_5_uncond') {

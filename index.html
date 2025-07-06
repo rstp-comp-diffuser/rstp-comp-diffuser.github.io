@@ -45,9 +45,54 @@
             Rapid and Safe Trajectory Planning over Diverse Scenes through Diffusion Composition
           </h1>
 
-          <span class="author-block">
+          <!-- <span class="author-block">
             Anonymous Authors<sup>1</sup>
-          </span>
+          </span> -->
+          
+          <div class="is-size-5 publication-authors">
+            <!-- TODO: -->
+            <span class="author-block">
+              Wule Mao<sup>*,1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://zhouhengli.github.io/" target="_blank">Zhouheng Li</a><sup>*,1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://devinluo27.github.io/" target="_blank">Yunhao Luo</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://yilundu.github.io/" target="_blank">Yilun Du</a><sup>3</sup>
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=7ZZ_-m0AAAAJ" target="_blank">Lei Xie</a><sup>1</sup>,
+            </span>
+            
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <sup>1</sup> Zhejiang University
+              </span>
+              <span class="author-block">
+                <sup>2</sup> University of Michigan
+              </span>
+              <span class="author-block">
+                <sup>3</sup> MIT
+              </span>
+              <!-- <span class="author-block">
+                <sup>1</sup> Anonymous Institution
+              </span> -->
+
+              <!-- <br> -->
+              <div style="font-size: 13pt;">
+                <sup>†</sup> Equal contribution
+              </div>
+
+              <div style="font-size: 13pt;">
+                contact: zh_li [at] zju [dot] edu [dot] cn
+              </div>
+
+            </div>
+          </div>
+
 
           
           <div class="column has-text-centered">
@@ -104,8 +149,13 @@
               </p> -->
             
               <img src="materials/teaser/vis_abstract.jpg" alt="" style="max-width: 950px">
+              <div class="left-caption" style="margin-top: 10px;">
+                <b>Diffusion Composition Enables <b class="cpdfu_gradient_text">Efficient, Safe Planning </b> with Practical Real-world Performance.</b>
+                An individual diffusion model cannot ensure safe trajectory planning in out-of-distribution scenarios, whereas composing multiple diffusion models can achieve safety during generalization. Dashed boxes indicate obstacles that do not exist during training. Validation on the F1TENTH platform demonstrates that trajectories planned by the composed diffusion model offer excellent safety  while maintaining computational efficiency, indicating that the proposed method is suitable for real-world applications.
+              </div>
             </div>
           </div>
+          
 
       </div>
     </div>
@@ -122,11 +172,7 @@
         <div class="content has-text-justified div_abs_text">
           <p>
 
-            Safe trajectory planning remains a significant challenge in complex, heterogeneous environments. Traditional approaches typically face a trade-off between computational efficiency and safety: comprehensive obstacle modeling enhances safety but involves high computational overhead, whereas approximate approaches improve computational efficiency at the expense of potentially reduced safety. To address this issue, this paper introduces a <b class="cpdfu_gradient_text">rapid and safe trajectory planning</b> framework based on the  state-based diffusion model. Leveraging only low-dimensional vehicle states, the diffusion approach achieves notable inference efficiency. Additionally, by composing diffusion models, the proposed framework can generalize safely across various scenarios, effectively navigating scenes not encountered during training. To further guarantee the safety of the generated trajectories, an efficient, rule-based safety filter is proposed, selecting optimal trajectories that fulfill stringent safety and consistency criteria from a batch of candidate trajectories. In a single scenario, the proposed method achieves a mean inference time of only 0.21 seconds while maintaining high stability and safety standards. Evaluations on the F1TENTH real-world platform demonstrate that the <b class="cpdfu_gradient_text">composed model </b> successfully generalizes to previously unseen scenarios, and the resulting trajectories can be reliably followed by straightforward controllers to accomplish navigation tasks.
-
-            <!-- Effective trajectory stitching for long-horizon planning is a significant challenge in robotic decision-making. While diffusion models have shown promise in planning, they are limited to solving tasks similar to those seen in their training data. We propose <b class="cpdfu_gradient_text">CompDiffuser</b>, a novel generative approach that can solve new tasks by learning to compositionally stitch together shorter trajectory chunks from previously seen tasks. Our key insight is modeling the trajectory distribution by subdividing it into overlapping chunks and learning their conditional relationships through a single bidirectional diffusion model. This allows information to propagate between segments during generation, ensuring physically consistent connections. 
-            We conduct experiments on benchmark tasks of various difficulties, covering different environment sizes, agent state dimension, training data quality, and show that <b class="cpdfu_gradient_text">CompDiffuser</b> significantly outperforming existing methods. -->
-
+            Safe trajectory planning remains a significant challenge in complex environments, where traditional methods often trade off computational efficiency for safety. Comprehensive obstacle modeling improves safety but is computationally expensive, while approximate methods are more efficient but may compromise safety. To address this issue, this paper introduces a <b class="cpdfu_gradient_text">rapid and safe trajectory planning</b> framework based on state-based diffusion models. Leveraging only low-dimensional vehicle states, the diffusion models achieve notable inference efficiency while ensuring sufficient collision-free characteristics. By <b class="cpdfu_gradient_text">composing diffusion models</b>, the proposed framework can safely generalize across diverse scenarios, planning collision-free trajectories even in unseen scenes. To further ensure the safety of the generated trajectories, an efficient, rule-based safety filter is proposed, which selects optimal trajectories that satisfy both sufficient safety and control feasibility from among candidate trajectories. Both in seen and unseen scenarios, the proposed method achieves efficient inference time while maintaining high safety and stability. Evaluations on the F1TENTH vehicle further demonstrate that the proposed method is practical in real-world applications.
             
           </p>
         </div>
@@ -137,87 +183,6 @@
 </section>
 <hr>
 
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-
-        <h2 class="title is-4">The Performance of Model Composition in Simulation</h2>
-
-
-        <div class="container bg-3">
-          <div class="row centered-caption" style="justify-content: center;">
-
-            <span class="splide_kuka_prob_id_repl">
-              Weights of composition - [Dynamic Model, Static Model]: &nbsp;
-              <!-- </p> -->
-              <div class="select is-small">     
-                <!-- <select id="cal-our-qual-list" onchange="update_cal_our_qual_list()"> -->
-                <select id="comp_dim_list" onchange="update_antmaze_high_dim_agv_qual_list()">
-                  <option value="rstp_5_uncond_08" selected="selected">[5.0(uncond) 0.8] </option>
-                  <option value="rstp_5_uncond_25">[5.0(uncond) 2.5]</option>
-                  <option value="rstp_02_5_uncond">[0.2 5.0(uncond)]</option>
-                  <option value="rstp_25_5_uncond">[2.5 5.0(uncond)]</option>
-                </select>
-              </div>
-              <!-- sequential reply -->
-              <!-- <span class="replay_lb_suc" id="btn_cal_replay" video_section="res">
-                <img src="static/replay.png" />
-                <span>replay</span>
-              </span> -->
-            </span>
-            
-
-            <div class="video-container" style="gap: 10px" >
-
-                <div class="antmaze_high_dim_item">
-                  <p class="splide_lb_suc_vs_rollout_repl cal_our_qual_caption">
-                    Dynamic Model
-                  </p>
-                  
-                  <img id="rstp_static" src="materials/sim_compose/static.jpg" alt="">
-
-                </div>
-
-                <div class="antmaze_high_dim_item">
-                  <div class="multi_hor_rm2d_caption cal_our_qual_caption"> 
-                    Static Model
-                  </div>
-
-                  <img id="rstp_dynamic" src="materials/sim_compose/dynamic.jpg" alt="">
-
-                </div>
-
-                <div class="antmaze_high_dim_item">
-                  <div class="multi_hor_rm2d_caption cal_our_qual_caption"> 
-                    Composed Result
-                  </div>
-
-                  <img id="rstp_compose" src="materials/sim_compose/5.0_0.8_dynamic_ucond.jpg" alt="">
-
-                </div>
-
-              
-
-            <div class="left-caption" style="margin-top: 10px;">
-              <b>Effectiveness of Models Composition and Sensitivity of Compositional Weights.</b>
-              The composed model can safely generalize to unseen scenes when appropriate compositional weights are selected, achieving a collision-free trajectory. However, increasing the weight assigned to conditional models results in a rise in failure rate across both test scenes. These results demonstrate that the generalization capability is sensitive to compositional weights, and maintaining appropriate weights is critical for minimizing failures.
-            </div>
-          </div>
-          
-          
-        </div>
-       
-
-        
-
-        
-      </div>
-    </div>
-  </div>
-</section>
-<hr>
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -334,8 +299,8 @@
 
             </div>
               <div class="left-caption" style="margin-top: 10px;">
-                <b>This paper proposes a rapid trajectory generation approach that integrates SLAM-based perception with a diffusion model.</b> 
-                Unlike end-to-end methods, it uses perception modules to extract low-dimensional vehicle states, reducing the computational cost of iterative denoising while retaining the diffusion model's generative power to ensure trajectory feasibility and safety.
+                <b>This paper introduces a fast trajectory‐synthesis framework that seamlessly fuses real‐time perception with diffusion‐based generative models.</b> 
+                By distilling rich sensor inputs into compact vehicle‐state embeddings, our approach dramatically accelerates the iterative denoising process while fully preserving the diffusion model's capacity to produce precise, high‐fidelity trajectories.
               </div>
           </div>
 
@@ -409,7 +374,7 @@
               </div>
 
               <br>
-              <h2 class="title is-5">Scene 1 - view 1:</h>
+              <h2 class="title is-5">Composed Scene 1 - view 1:</h>
               <div class="video-container" style="gap: 5px" >
                   <div class="continuous_racing_item" id="scene_p1">
                     <p class="splide_lb_suc_vs_rollout_repl cal_our_qual_caption">
@@ -463,7 +428,7 @@
               </div>
 
               <br>
-              <h2 class="title is-5">Scene 1 - view 2:</h>
+              <h2 class="title is-5">Composed Scene 1 - view 2:</h>
               <div class="video-container" style="gap: 5px" >
                   <div class="continuous_racing_item" id="scene_p1_v2">
                     <p class="splide_lb_suc_vs_rollout_repl cal_our_qual_caption">
@@ -518,7 +483,7 @@
               </div>
               
               <br>
-              <h2 class="title is-5">Scene 2 - view 1:</h>
+              <h2 class="title is-5">Composed Scene 2 - view 1:</h>
               <div class="video-container" style="gap: 5px" >
                   <div class="continuous_racing_item" id="scene2_p1_v1">
                     <p class="splide_lb_suc_vs_rollout_repl cal_our_qual_caption">
@@ -572,7 +537,7 @@
               </div>
 
               <br>
-              <h2 class="title is-5">Scene 2 - view 2:</h>
+              <h2 class="title is-5">Composed Scene 2 - view 2:</h>
               <div class="video-container" style="gap: 5px" >
                   <div class="continuous_racing_item" id="scene2_p1_v2">
                     <p class="splide_lb_suc_vs_rollout_repl cal_our_qual_caption">
@@ -628,6 +593,86 @@
             </div>
           </div>
 
+      </div>
+    </div>
+  </div>
+</section>
+<hr>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+
+        <h2 class="title is-4">The Performance of Model Composition in Simulation</h2>
+
+
+        <div class="container bg-3">
+          <div class="row centered-caption" style="justify-content: center;">
+
+            <span class="splide_kuka_prob_id_repl">
+              Weights of composition - [Dynamic Model, Static Model]: &nbsp;
+              <!-- </p> -->
+              <div class="select is-small">     
+                <!-- <select id="cal-our-qual-list" onchange="update_cal_our_qual_list()"> -->
+                <select id="comp_dim_list" onchange="update_antmaze_high_dim_agv_qual_list()">
+                  <option value="rstp_5_uncond_08" selected="selected">[5.0(uncond) 0.8] </option>
+                  <option value="rstp_5_uncond_10" selected="selected">[5.0(uncond) 1.0] </option>
+                  <option value="rstp_5_uncond_12" selected="selected">[5.0(uncond) 1.2] </option>
+                  <option value="rstp_5_uncond_25">[5.0(uncond) 2.5]</option>
+                  <option value="rstp_02_5_uncond">[0.2 5.0(uncond)]</option>
+                  <option value="rstp_25_5_uncond">[2.5 5.0(uncond)]</option>
+                </select>
+              </div>
+              
+            </span>
+            
+
+            <div class="video-container" style="gap: 10px" >
+
+                <div class="antmaze_high_dim_item">
+                  <div class="multi_hor_rm2d_caption cal_our_qual_caption"> 
+                    Static Model
+                  </div>
+
+                  <img id="rstp_dynamic" src="materials/sim_compose/dynamic.jpg" alt="">
+
+                </div>
+
+                <div class="antmaze_high_dim_item">
+                  <p class="splide_lb_suc_vs_rollout_repl cal_our_qual_caption">
+                    Dynamic Model
+                  </p>
+                  
+                  <img id="rstp_static" src="materials/sim_compose/static.jpg" alt="">
+
+                </div>
+
+                <div class="antmaze_high_dim_item">
+                  <div class="multi_hor_rm2d_caption cal_our_qual_caption"> 
+                    Composed Result
+                  </div>
+
+                  <img id="rstp_compose" src="materials/sim_compose/5.0_0.8_dynamic_ucond.jpg" alt="">
+
+                </div>
+
+              
+
+            <div class="left-caption" style="margin-top: 10px;">
+              <b>Effectiveness of Models Composition and Sensitivity of Compositional Weights.</b>
+              The composed model can safely generalize to unseen scenes when appropriate compositional weights are selected, achieving collision-free trajectory planning. 
+            </div>
+          </div>
+          
+          
+        </div>
+       
+
+        
+
+        
       </div>
     </div>
   </div>
