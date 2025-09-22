@@ -144,10 +144,10 @@
                 </div>
               </p> -->
             
-              <img src="materials/teaser/vis_abstract.jpg" alt="" style="max-width: 950px">
+              <img src="materials/teaser/vis_abstract.png" alt="" style="max-width: 950px">
               <div class="left-caption" style="margin-top: 10px;">
-                <b>Diffusion Composition Enables <b class="cpdfu_gradient_text">Efficient, Safe Planning </b> with Practical Real-world Performance.</b>
-                An individual diffusion model cannot ensure safe trajectory planning in out-of-distribution scenarios, whereas composing multiple diffusion models can achieve safety during generalization. Dashed boxes indicate obstacles that do not exist during training. Validation on the F1TENTH platform demonstrates that trajectories planned by the composed diffusion model offer excellent safety  while maintaining computational efficiency, indicating that the proposed method is suitable for real-world applications.
+                <b>Diffusion Composition Enables <b class="cpdfu_gradient_text">Efficient, Safe Planning</b> with Practical Real-world Performance.</b>
+                 An individual diffusion model cannot ensure safe trajectory planning in out-of-distribution scenarios, whereas composing multiple diffusion models can achieve safety during generalization. Dashed boxes indicate obstacles that do not exist during training. Validation on the F1TENTH platform shows that trajectories planned by the composed diffusion model offer excellent safety while maintaining computational efficiency, demonstrating effectiveness for practical real-world applications.
               </div>
             </div>
           </div>
@@ -167,9 +167,9 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified div_abs_text">
           <p>
-
-            Safe trajectory planning remains a significant challenge in complex environments, where traditional methods often trade off computational efficiency for safety. Comprehensive obstacle modeling improves safety but is computationally expensive, while approximate methods are more efficient but may compromise safety. To address this issue, this paper introduces a <b class="cpdfu_gradient_text">rapid and safe trajectory planning</b> framework based on state-based diffusion models. Leveraging only low-dimensional vehicle states, the diffusion models achieve notable inference efficiency while ensuring sufficient collision-free characteristics. By <b class="cpdfu_gradient_text">composing diffusion models</b>, the proposed framework can safely generalize across diverse scenarios, planning collision-free trajectories even in unseen scenes. To further ensure the safety of the generated trajectories, an efficient, rule-based safety filter is proposed, which selects optimal trajectories that satisfy both sufficient safety and control feasibility from among candidate trajectories. Both in seen and unseen scenarios, the proposed method achieves efficient inference time while maintaining high safety and stability. Evaluations on the F1TENTH vehicle further demonstrate that the proposed method is practical in real-world applications.
             
+            Safe trajectory planning in complex environments must balance stringent collision avoidance with real-time efficiency, which is a long-standing challenge in robotics. In this work, we present a <b class="cpdfu_gradient_text">diffusion-based trajectory planning framework</b> that is both rapid and safe. First, we introduce a scene-agnostic, MPC-based data generation pipeline that efficiently produces large volumes of kinematically feasible trajectories. Building on this dataset, our integrated diffusion planner maps raw onboard sensor inputs directly to kinematically feasible trajectories, enabling efficient inference while maintaining strong collision avoidance. To generalize to diverse, previously unseen scenarios, we <b class="cpdfu_gradient_text">compose diffusion models</b> at test time, enabling safe behavior without additional training. We further propose a lightweight, rule-based safety filter that, from the candidate set, selects the trajectory meeting safety and kinematic-feasibility requirements. Across seen and unseen settings, the proposed method delivers real-time-capable inference with high safety and stability. Experiments on an F1TENTH vehicle demonstrate practicality on real hardware.
+
           </p>
         </div>
 
@@ -366,7 +366,7 @@
               </div>
 
               <div class="left-caption" style="margin-top: 10px;">
-                <b>This model composition approach ensures collision-free trajectory planning in <b class="cpdfu_gradient_text">unseen scenes</b> for safety.</b>  The proposed method can make optimal test-time decisions to generate safe behaviors, such as accelerating to bypass or decelerating to avoid obstacles , thus allowing trajecoty planning for diverse scenes without retraining.
+                <b>This model composition approach ensures collision-free trajectory planning in <b class="cpdfu_gradient_text">unseen scenes</b> for safety.</b>  The proposed method can make safe test-time decisions to generate safe behaviors, such as decelerating to avoid obstacles, thus allowing collision-free trajecoty planning for diverse scenes without retraining.
               </div>
 
               <br>
