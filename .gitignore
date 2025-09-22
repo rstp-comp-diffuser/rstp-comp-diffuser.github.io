@@ -3,4 +3,4 @@ trash/**
 .DS_Store
 **/.DS_Store
 _site/*
-
+node_modules/*
