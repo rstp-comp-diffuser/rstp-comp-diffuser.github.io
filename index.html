@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="description"
         content="Rapid and Safe Trajectory Planning over Diverse Scenes through Diffusion Composition.">
-  <meta name="keywords" content="XX">
+  <meta name="keywords" content="Diffusion Model, Composition, Energy-based Model, Trajectory Planning, Generalization">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- TODO: -->
-  <meta name="author" content="Under Review">
+  <meta name="author" content="IECON2026">
   <title>Rapid and Safe Trajectory Planning over Diverse Scenes through Diffusion Composition</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
@@ -45,26 +45,19 @@
             Rapid and Safe Trajectory Planning over Diverse Scenes through Diffusion Composition
           </h1>
 
-          <span class="author-block">
-            Anonymous Authors
-          </span>
-          <br>
-          <span class="author-block">
-            Anonymous Institution
-          </span>
-<!--           
+          
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              Wule Mao<sup>*,1</sup>,
+              Wule Mao<sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://zhouhengli.github.io/" target="_blank">Zhouheng Li</a><sup>*,1</sup>,
+              <a href="https://zhouhengli.github.io/" target="_blank">Zhouheng Li</a><sup>1</sup>,
             </span>
             <span class="author-block">
               <a href="https://devinluo27.github.io/" target="_blank">Yunhao Luo</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://yilundu.github.io/" target="_blank">Yilun Du</a><sup>3</sup>,
+              <a href="https://zhaofangguo.github.io/homepage/" target="_blank">Fangguo Zhao</a><sup>1</sup>,
             </span>
             <span class="author-block">
               <a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=7ZZ_-m0AAAAJ" target="_blank">Lei Xie</a><sup>1</sup>
@@ -74,27 +67,28 @@
               <span class="author-block">
                 <sup>1</sup> Zhejiang University
               </span>
+              
               <span class="author-block">
                 <sup>2</sup> University of Michigan
               </span>
-              <span class="author-block">
-                <sup>3</sup> MIT
-              </span>
+            </div>
 
-              <div style="font-size: 13pt;">
-                <sup>†</sup> Equal contribution
-              </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://www.iecon2026.org/" target="_blank">IECON 2026</a>
+              </span>
 
               <div style="font-size: 13pt;">
                 contact: zh_li [at] zju [dot] edu [dot] cn
               </div>
 
             </div>
-          </div> -->
+
+          </div>
 
 
           
-          <!-- <div class="column has-text-centered">
+          <div class="column has-text-centered">
             <div class="publication-links">
 
               <span class="link-block">
@@ -119,9 +113,19 @@
                 </a>
               </span>
 
+              <span class="link-block">
+                <a href="https://github.com/zhouhengli/rstp-mpc-planner"
+                  class="external-link button is-normal is-rounded is-dark"
+                  target="_blank">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span >MPC</span>
+                </a>
+              </span>
 
             </div>
-          </div> -->
+          </div>
 
         </div>
       </div>
@@ -147,7 +151,7 @@
               <img src="materials/teaser/vis_abstract.png" alt="" style="max-width: 950px">
               <div class="left-caption" style="margin-top: 10px;">
                 <b>Diffusion Composition Enables <b class="cpdfu_gradient_text">Efficient, Safe Planning</b> with Practical Real-world Performance.</b>
-                 An individual diffusion model cannot ensure safe trajectory planning in out-of-distribution scenarios, whereas composing multiple diffusion models can achieve safety during generalization. Dashed boxes indicate obstacles that do not exist during training. Validation on the F1TENTH platform shows that trajectories planned by the composed diffusion model offer excellent safety while maintaining computational efficiency, demonstrating effectiveness for practical real-world applications.
+                 An individual diffusion model cannot ensure safe trajectory planning in out-of-distribution scenarios, whereas composing multiple energy-based diffusion models can achieve test-time generalization. Dashed boxes indicate obstacles that do not exist during training. Validation on the F1TENTH platform shows that trajectories planned by the composed diffusion model offer excellent safety while maintaining computational efficiency, demonstrating effectiveness for practical real-world applications.
               </div>
             </div>
           </div>
@@ -167,8 +171,9 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified div_abs_text">
           <p>
+            Achieving safe, efficient, and kinematically feasible planning in dynamic environments remains a significant challenge, as planners must simultaneously handle moving obstacles, sensor uncertainty, and strict motion constraints. To address this problem,  we propose an <b class="cpdfu_gradient_text">energy-parameterized diffusion</b> planning framework that learns a conservative energy field to realize safe and stable generalization across diverse scenarios. The energy-parameterized diffusion formulation enables flexible integration of multiple constraints, allowing the planner to <b class="cpdfu_gradient_text">generalize to previously unseen environments</b> without retraining. To ensure real-time safety during deployment, we further incorporate a lightweight safety filter that enforces safety and kinematic feasibility constraints in real-time. Additionally, we develop a scene-agnostic, MPC-based data generation pipeline to produce large-scale, dynamically feasible training trajectories. In simulation, the proposed method achieves real-time performance with a mean planning time of 0.21s and a low planning failure rate of 0.57%. Real-world experiments on the F1TENTH platform further validate the effectiveness of the proposed framework. Under sensor uncertainty in previously unseen dynamic environments, the planner consistently generates collision-free trajectories, which remain safe after being tracked by a simple controller, maintaining a mean obstacle clearance of 0.26 m, demonstrating strong robustness and practical applicability. Project page: https://rstp-comp-diffuser.github.io.
             
-            Safe trajectory planning in complex environments must balance stringent collision avoidance with real-time efficiency, which is a long-standing challenge in robotics. In this work, we present a <b class="cpdfu_gradient_text">diffusion-based trajectory planning framework</b> that is both rapid and safe. First, we introduce a scene-agnostic, MPC-based data generation pipeline that efficiently produces large volumes of kinematically feasible trajectories. Building on this dataset, our integrated diffusion planner maps raw onboard sensor inputs directly to kinematically feasible trajectories, enabling efficient inference while maintaining strong collision avoidance. To generalize to diverse, previously unseen scenarios, we <b class="cpdfu_gradient_text">compose diffusion models</b> at test time, enabling safe behavior without additional training. We further propose a lightweight, rule-based safety filter that, from the candidate set, selects the trajectory meeting safety and kinematic-feasibility requirements. Across seen and unseen settings, the proposed method delivers real-time-capable inference with high safety and stability. Experiments on an F1TENTH vehicle demonstrate practicality on real hardware.
+            <!-- Safe trajectory planning in complex environments must balance stringent collision avoidance with real-time efficiency, which is a long-standing challenge in robotics. In this work, we present a <b class="cpdfu_gradient_text">diffusion-based trajectory planning framework</b> that is both rapid and safe. First, we introduce a scene-agnostic, MPC-based data generation pipeline that efficiently produces large volumes of kinematically feasible trajectories. Building on this dataset, our integrated diffusion planner maps raw onboard sensor inputs directly to kinematically feasible trajectories, enabling efficient inference while maintaining strong collision avoidance. To generalize to diverse, previously unseen scenarios, we <b class="cpdfu_gradient_text">compose diffusion models</b> at test time, enabling safe behavior without additional training. We further propose a lightweight, rule-based safety filter that, from the candidate set, selects the trajectory meeting safety and kinematic-feasibility requirements. Across seen and unseen settings, the proposed method delivers real-time-capable inference with high safety and stability. Experiments on an F1TENTH vehicle demonstrate practicality on real hardware. -->
 
           </p>
         </div>
@@ -295,8 +300,10 @@
 
             </div>
               <div class="left-caption" style="margin-top: 10px;">
-                <b>This paper introduces a fast trajectory‐synthesis framework that seamlessly fuses real‐time perception with diffusion‐based generative models.</b> 
-                By distilling rich sensor inputs into compact vehicle‐state embeddings, our approach dramatically accelerates the iterative denoising process while fully preserving the diffusion model's capacity to produce precise, high‐fidelity trajectories.
+                <!-- <b>This paper introduces a fast trajectory‐synthesis framework that seamlessly fuses real‐time perception with diffusion‐based generative models.</b>  -->
+                <!-- By distilling rich sensor inputs into compact vehicle‐state embeddings, our approach dramatically accelerates the iterative denoising process while fully preserving the diffusion model's capacity to produce precise, high‐fidelity trajectories. -->
+
+                <b>This paper presents a rapid diffusion-based trajectory-planning framework that integrates real-time localization and perception with energy-parameterized generative models.</b> By performing state-based denoising over low-dimensional representations, RSTP reduces the noise dimension and improves planning efficiency while retaining diffusion models' generative capability for smooth, kinematically feasible trajectory candidates.
               </div>
           </div>
 
